@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Index Anagrafica";
+}
+<div class="container">
+    <h1>Index Anagrafiche</h1>
+    @if (TempData["AnagrafeAdd"] is not null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["AnagrafeAdd"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">IDAnagrafica</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Indirizzo</th>
+                <th scope="col">Città</th>
+                <th scope="col">CAP</th>
+                <th scope="col">Codice Fiscale</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (var anagrafe in Model)
+            {    
+                <tr>
+                    <th scope="row">@anagrafe.IDAnagrafica</th>
+                    <td>@anagrafe.Cognome</td>
+                    <td>@anagrafe.Nome</td>
+                    <td>@anagrafe.Indirizzo</td>
+                    <td>@anagrafe.Citta</td>
+                    <td>@anagrafe.Cap</td>
+                    <td>@anagrafe.CodiceFiscale</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

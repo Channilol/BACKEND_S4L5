@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Add Anagrafica";
+}
+
+<div class="container">
+    <h1>Aggiungi un'anagrafica</h1><br />
+    <form asp-controller="Anagrafica" asp-action="Add" method="post" enctype="multipart/form-data">
+
+        <label class="form-label">Cognome</label>
+        <input type="text" class="form-control" name="Cognome" required /><br />
+
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" name="Nome" required /><br />
+
+        <label class="form-label">Indirizzo</label>
+        <input type="text" class="form-control" name="Indirizzo" required /><br />
+
+        <label class="form-label">Citta</label>
+        <input type="text" class="form-control" name="Citta" required /><br />
+
+        <label class="form-label">Cap</label>
+        <input type="number" class="form-control" name="Cap" required /><br />
+
+        <label class="form-label">CodiceFiscale</label>
+        <input type="text" class="form-control" name="CodiceFiscale" required />
+        <br />
+
+        <button class="btn btn-primary" type="submit">Aggiungi Verbale</button>
+    </form>
+</div>

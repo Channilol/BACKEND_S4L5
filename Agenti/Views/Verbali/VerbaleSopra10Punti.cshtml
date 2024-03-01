@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Lista verbali con più di 10 punti decurtati";
+}
+
+<div class="container">
+    <h1>Lista verbali con più di 10 punti decurtati</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Punti Decurtati</th>
+                <th scope="col">Importo</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data Violazione</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            @foreach (var verbale in Model)
+            {
+                <tr>
+                    <th scope="row">@verbale.DecurtamentoPunti</th>
+                    <td>@verbale.Importo €</td>
+                    <td>@verbale.Cognome</td>
+                    <td>@verbale.Nome</td>
+                    <td>@verbale.DataViolazione</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

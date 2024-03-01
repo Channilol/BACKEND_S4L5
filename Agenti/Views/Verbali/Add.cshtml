@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Aggiungi Verbale";
+}
+
+<div class="container">
+    <h1>Aggiungi un Verbale</h1>
+    <br />
+    <form asp-controller="Verbali" asp-action="Add" method="post" enctype="multipart/form-data">
+
+        <label class="form-label">Seleziona l'Anagrafica</label>
+        <select class="form-select" aria-label="Default select example" name="IdAnagrafica" required>
+        <option selected>Seleziona l'Anagrafe</option>
+        @foreach (var persona in Model)
+        {
+            <option value="@persona.IdAnagrafica">@persona.IdAnagrafica - @persona.Cognome @persona.Nome</option>
+        }
+        </select><br />
+
+        <label class="form-label">Seleziona la Violazione</label>
+        <select class="form-select" aria-label="Small select example" name="IdViolazione" required>
+            <option selected value="1">Parcheggio in divieto di sosta per più di 15 minuti.</option>
+            <option value="2">Guida senza cintura di sicurezza.</option>
+            <option value="3">Superamento del limite di velocità di 50 km/h.</option>
+            <option value="4">Utilizzo del telefono cellulare mentre si guida.</option>
+            <option value="5">Mancata esposizione del contrassegno di revisione sul veicolo.</option>
+            <option value="6">Transito in zona a traffico limitato senza autorizzazione.</option>
+            <option value="7">Mancanza del certificato di assicurazione a bordo del veicolo.</option>
+            <option value="8">Sosta in doppia fila.</option>
+            <option value="9">Inosservanza del segnale di stop.</option>
+            <option value="10">Mancanza di revisione periodica del veicolo.</option>
+        </select><br />
+
+        <div class="form-group">
+            <label class="form-label">Data Violazione</label>
+            <input type="date" class="form-control" name="DataViolazione" required>
+        </div><br />
+
+        <label class="form-label">Indirizzo Violazione</label>
+        <input type="text" class="form-control" name="IndirizzoViolazione" required /><br />
+
+        <label class="form-label">Seleziona l'Agente</label>
+        <select class="form-select" aria-label="Small select example" name="IdAgente" required>
+            <option selected>Seleziona l'ID Agente</option>
+            <option value="2">Marco Rossi</option>
+            <option value="3">Giulia Bianchi</option>
+            <option value="4">Luca Verdi</option>
+            <option value="5">Simona Neri</option>
+            <option value="6">Alessandro Gialli</option>
+            <option value="7">Chiara Marroni</option>
+        </select><br />
+
+        <div class="form-group">
+            <label class="form-label">Data Trascrizione Verbale</label>
+            <input type="date" class="form-control" name="DataTrascrVerbale" required>
+        </div><br />
+
+        <label class="form-label">Importo</label>
+        <div class="input-group mb-3">
+            <span class="input-group-text">€</span>
+            <input type="number" class="form-control" aria-label="Amount (to the nearest euro)" name="Importo" required>
+            <span class="input-group-text">.00</span>
+        </div><br />
+
+        <label class="form-label">Decurtamento Punti</label>
+        <input type="number" class="form-control" name="DecurtamentoPunti" required />
+        <br />
+
+        <button class="btn btn-primary" type="submit">Aggiungi Verbale</button>
+    </form>
+</div>
